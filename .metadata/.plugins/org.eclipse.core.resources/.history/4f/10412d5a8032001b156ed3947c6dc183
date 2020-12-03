@@ -1,0 +1,56 @@
+package com.douineau.testspringboot.security;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.douineau.testspringboot.model.security.Role;
+
+public class ApplicationUserDetails extends User implements UserDetails {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6881969431236214232L;
+
+	@Override
+	public Collection<GrantedAuthority> getAuthorities() {
+		return getAuthorities();
+	}
+
+	@Override
+	public String getUsername() {
+		return getUsername();
+	}
+	
+	@Override
+	public String getPassword() {
+		return getPassword();
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return isAccountNonExpired();
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return isAccountNonLocked();
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return isCredentialsNonExpired();
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return isEnabled();
+	}
+
+}

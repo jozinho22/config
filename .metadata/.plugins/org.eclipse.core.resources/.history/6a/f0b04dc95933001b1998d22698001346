@@ -1,0 +1,10 @@
+package com.douineau.testspringboot.controller.api;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.douineau.testspringboot.model.api.Writer;
+
+@RequestMapping("generic-api/writers")
+public class WriterController extends GenericApiController<Writer> {
+
+}

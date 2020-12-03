@@ -1,0 +1,106 @@
+package com.douineau.testspringboot.service.security;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.security.IRoleDao;
+import com.douineau.testspringboot.dao.security.IUserDao;
+import com.douineau.testspringboot.model.security.Permission;
+import com.douineau.testspringboot.model.security.Role;
+import com.douineau.testspringboot.model.security.User;
+import com.douineau.testspringboot.security.enums.ApplicationPermission;
+import com.douineau.testspringboot.security.enums.ApplicationRole;
+import com.douineau.testspringboot.service.IGenericService;
+
+@Service
+public class UserService implements IGenericService<User> {
+	
+	@Autowired
+	private IUserDao userRepo;
+	@Autowired
+	private IRoleDao roleRepo;
+	@Autowired
+	private IRoleDao permRepo;
+	
+	@Autowired
+	private PasswordEncoder passworEncoder;
+
+	@Override
+	public User getObject(Integer id) {
+		Optional<User> mayBe = userRepo.findById(id);
+		if(mayBe.isPresent()) {
+			return mayBe.get();
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<User> getAllObjects() {
+		return  (List<User>) userRepo.findAll();
+	}
+
+	@Override
+	public String addObjects(Set<User> objects) {
+		Set<User> users = new HashSet<User>();
+		
+		for(User user : objects) {
+			User u = new User(
+					user.getName(),
+					passworEncoder.encode(user.getPassword()),
+					true,
+					true,
+					true,
+					true
+					);
+			
+			users.add(u);
+		}
+		
+		List<User> usersToUpdateRolesAndPerms = (List<User>) repo.saveAll(users);
+		
+		for(User user : usersToUpdateRolesAndPerms) {
+			User u = userRepo.findByName(user.getName()).get();
+			u.setRoles(user.getRoles());
+			u.setPermissions(user.getPermissions());
+			usersToUpdateRolesAndPerms.add(u);
+		}
+		
+		userRepo.saveAll(usersToUpdateRolesAndPerms);
+		return "Objets de type : " + users.getClass().getTypeName() + " bien insérés";
+	}
+
+	@Override
+	public String addObject(User object) {
+		
+		User u = new User(
+				object.getName(),
+				passworEncoder.encode(object.getPassword()),
+				true,
+				true,
+				true,
+				true
+				);
+				
+		//Retrieving the entities from database
+		Role roleAdmin = roleRepo.findByName(ApplicationRole.ADMIN.name()).get();
+		Role roleUser = roleRepo.findByName(ApplicationRole.USER.name()).get();
+
+		Permission permissionToWrite = permRepo.findByName(ApplicationPermission.WRITE.name()).get();
+		Permission permissionToRead = permRepo.findByName(ApplicationPermission.READ.name()).get();
+		
+		User uToUpdateRolesAndPerms = userRepo.save(u);
+		uToUpdateRolesAndPerms.setRoles(object.getRoles());
+		uToUpdateRolesAndPerms.setPermissions(object.getPermissions());
+		
+		userRepo.save(uToUpdateRolesAndPerms);
+		return "Objet de type : " + uToUpdateRolesAndPerms.getClass().getTypeName() + " bien inséré";
+	}
+
+}

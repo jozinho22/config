@@ -1,0 +1,28 @@
+1606758299728	Rename type 'Disciple'
+1606758439479	Rename type 'Technique'
+1606759720711	Rename type 'Right'
+1606759847584	Rename local variable 'authorities'
+1606760472407	Copy compilation unit
+1606760610880	Copy compilation unit
+1606760662488	Copy compilation unit
+1606760874532	Move compilation unit
+1606760894415	Copy compilation unit
+1606760956940	Rename type 'FakeApplicationUserDaoImpl'
+1606760975299	Rename type 'RealApplicationUserDaoImpl'
+1606762914986	Move compilation unit
+1606764594503	Rename type 'Authority'
+1606769007255	Copy compilation unit
+1606769071238	Copy compilation unit
+1606769274476	Copy compilation unit
+1606769282987	Copy compilation unit
+1606770379792	Copy compilation unit
+1606770776534	Move compilation unit
+1606771142905	Rename type 'GenericApiServiceImpl'
+1606771177400	Rename type 'GenericApiControllerImpl'
+1606772693240	Rename compilation unit 'GenericAdminController.java'
+1606772699948	Rename compilation unit 'GenericController.java'
+1606772705679	Rename compilation unit 'GenericApiController.java'
+1606772812315	Rename type 'GenericApiService'
+1606772820743	Rename type 'GenericAdminService'
+1606772825996	Rename type 'GenericService'
+1606777285866	Copy compilation unit

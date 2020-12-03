@@ -1,0 +1,7 @@
+package com.douineau.testspringboot.dao;
+
+import com.douineau.testspringboot.service.IGenericService;
+
+public interface IGenericApiDao<T> extends IGenericService<T> {
+
+}

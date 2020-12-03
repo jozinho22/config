@@ -1,0 +1,21 @@
+package com.douineau.testspringboot.service.api;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.api.IBookDao;
+import com.douineau.testspringboot.model.api.Book;
+import com.douineau.testspringboot.service.IGenericApiService;
+
+@Service
+public class BookService implements IGenericApiService<Book> {
+	
+	@Autowired
+	private IBookDao repo;
+	
+	
+
+}

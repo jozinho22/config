@@ -1,0 +1,26 @@
+package com.douineau.testspringboot.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.douineau.testspringboot.model.api.Book;
+
+@Configuration
+public class GenericControllerMappingConfig {
+	
+	@Bean("apiConfig")
+	private <?> Map<String, Class<T>> mapping() {
+		
+		Map<String, Class<?>> mapping = new HashMap<String, Class<?>>();
+		mapping.put("/api/books", Book.class);
+		
+		
+		return null;
+	
+		
+	}
+
+}

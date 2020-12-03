@@ -1,0 +1,88 @@
+package com.douineau.testspringboot.service.security;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.security.IUserDao;
+import com.douineau.testspringboot.model.security.User;
+import com.douineau.testspringboot.service.IGenericService;
+
+@Service
+public class UserService implements IGenericService<User> {
+	
+	@Autowired
+	private IUserDao repo;
+	
+	@Autowired
+	private PasswordEncoder passworEncoder;
+
+	@Override
+	public User getObject(Integer id) {
+		Optional<User> mayBe = repo.findById(id);
+		if(mayBe.isPresent()) {
+			return mayBe.get();
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<User> getAllObjects() {
+		return  (List<User>) repo.findAll();
+	}
+
+	@Override
+	public String addObjects(Set<User> objects) {
+		Set<User> users = new HashSet<User>();
+		
+		for(User user : objects) {
+			User u = new User(
+					user.getName(),
+					passworEncoder.encode(user.getPassword()),
+					true,
+					true,
+					true,
+					true
+					);
+			
+			users.add(u);
+		}
+		
+		List<User> usersToUpdateRolesAndPerms = (List<User>) repo.saveAll(users);
+		
+		for(User user : usersToUpdateRolesAndPerms) {
+			User u = repo.findByName(user.getName()).get();
+			u.setRoles(user.getRoles());
+			u.setPermissions(user.getPermissions());
+			usersToUpdateRolesAndPerms.add(u);
+		}
+		
+		repo.saveAll(usersToUpdateRolesAndPerms);
+		return "Objets de type : " + users.getClass().getTypeName() + " bien insérés";
+	}
+
+	@Override
+	public String addObject(User object) {
+		
+		User u = new User(
+				object.getName(),
+				passworEncoder.encode(object.getPassword()),
+				true,
+				true,
+				true,
+				true
+				);
+		
+		users.add(u);
+		
+		repo.save(object);
+		return "Objets de type : " + object.getClass().getTypeName() + " bien insérés";
+	}
+
+}

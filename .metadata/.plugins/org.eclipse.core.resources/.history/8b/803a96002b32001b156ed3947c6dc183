@@ -1,0 +1,15 @@
+package com.douineau.testspringboot.security;
+
+public enum Permission {
+	
+	READ("read"), WRITE("write");
+	
+	private final String permission;
+
+	private Permission(String permission) {
+		this.permission = permission;
+	}
+	
+	
+
+}

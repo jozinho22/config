@@ -1,0 +1,32 @@
+package com.douineau.testspringboot.dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.douineau.testspringboot.dao.security.ApplicationUserDetailsDao;
+import com.douineau.testspringboot.model.security.User;
+import com.douineau.testspringboot.security.ApplicationUserDetails;
+import com.google.common.collect.Lists;
+
+public class FakeApplicationUserDaoImpl implements ApplicationUserDetailsDao {
+
+	@Override
+	public Optional<User> findUserDetailsByUsername(String username) {
+		return null;
+	}
+
+	private List<ApplicationUserDetails> getUserDetails() {
+		 
+		User user = new User();
+		user.setName("joss");
+		user.setPassword("joss");
+		user.setAccountNonExpired(true);
+		user.setAccountNonLocked(true);
+		user.setCredentialsNonExpired(true);
+		user.setEnabled(true);
+		
+		List<ApplicationUserDetails> userDetails = Lists.newArrayList(
+				new ApplicationUserDetails(user)
+				);
+	}
+}

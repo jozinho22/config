@@ -1,0 +1,11 @@
+package com.douineau.testspringboot.dao.api;
+
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.dao.IGenericApiDao;
+import com.douineau.testspringboot.model.api.Book;
+
+@Repository
+public interface IBookDao extends IGenericApiDao<Book> {
+
+}

@@ -1,0 +1,24 @@
+package com.douineau.testspringboot.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.douineau.testspringboot.dao.IGenericApiDao;
+import com.douineau.testspringboot.service.api.T;
+
+public interface IGenericService<T> {
+	
+	final IGenericApiDao<T> repo;
+	
+	default public T getObject(Integer id) {
+		Optional<T> tMayBe = repo.findById(id);
+		if(tMayBe.isPresent()) {
+			return tMayBe.get();
+		} else {
+			return null;
+		}
+	}
+	
+	public List<T> getAllObjects();
+
+}

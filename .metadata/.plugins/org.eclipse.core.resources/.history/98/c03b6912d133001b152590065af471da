@@ -1,0 +1,7 @@
+package com.douineau.testspringboot.dao.api;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface GenericDao<?> extends CrudRepository<?, Integer> {
+
+}

@@ -1,0 +1,5 @@
+package com.douineau.testspringboot.dao.security;
+
+public interface ApplicationUserDetailsDao {
+
+}

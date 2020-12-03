@@ -1,0 +1,10 @@
+//package com.douineau.testspringboot.service.api;
+//
+//import org.springframework.stereotype.Service;
+//
+//import com.douineau.testspringboot.model.api.Writer;
+//
+//@Service
+//public class WriterService extends GenericApiService<Writer> {
+//
+//}

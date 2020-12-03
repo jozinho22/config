@@ -1,0 +1,18 @@
+package com.douineau.testspringboot.model.security;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+
+import com.douineau.testspringboot.model.AbstractEntity;
+
+@Entity
+public class Authority extends AbstractEntity {
+
+	private String role;
+	@ManyToMany
+	private List<User> users;
+	
+	
+}

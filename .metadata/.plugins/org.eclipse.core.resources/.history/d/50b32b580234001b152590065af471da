@@ -1,0 +1,33 @@
+package com.douineau.testspringboot.service.api;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.api.IReaderDao;
+import com.douineau.testspringboot.model.api.Book;
+import com.douineau.testspringboot.model.api.Reader;
+import com.douineau.testspringboot.service.IGenericApiService;
+
+@Service
+public class ReaderService implements IGenericApiService<Reader> {
+	
+	@Autowired 
+	private IReaderDao repo;
+
+	@Override
+	public Reader getObject(Integer id) {
+		return super.getObject(id, repo);
+	}
+	
+	@Override
+	public List<Reader> getAllObjects() {
+		return super.getAllObjects(repo);
+	}
+
+	@Override
+	public String addObjects(List<Reader> objects) {
+		return super.addObjects(objects, repo);
+	}
+}

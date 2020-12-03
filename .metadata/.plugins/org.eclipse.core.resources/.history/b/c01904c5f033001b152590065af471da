@@ -1,0 +1,5 @@
+package com.douineau.testspringboot.service;
+
+public interface IGenericService {
+
+}

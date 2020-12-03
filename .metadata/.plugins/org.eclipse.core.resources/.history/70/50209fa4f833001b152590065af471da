@@ -1,0 +1,20 @@
+package com.douineau.testspringboot.service.api;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.IGenericApiDao;
+import com.douineau.testspringboot.model.api.Book;
+
+@Service
+public class BookService extends GenericApiService<Book> {
+
+	@Autowired
+	@Qualifier("bookDao")
+	private IGenericApiDao<Book> repo;
+	
+}

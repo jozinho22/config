@@ -1,0 +1,40 @@
+package com.douineau.testspringboot.dao;
+
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class GenericApiDao<T> implements IGenericApiDao<T> {
+	
+	@PersistenceContext(name = "test_sb_pu")
+	private EntityManager manager;
+
+	public EntityManager getManager() {
+		return manager;
+	}
+
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	@Override
+	public T getObject(Class<?> clazz, Integer id) {
+		return getManager().find(clazz, id);
+	}
+
+	@Override
+	public List<T> getAllObjects(Class<T> clazz) {
+		return null;
+	}
+
+	@Override
+	public String addObjects(Class<T> clazz, Set<T> objects) {
+		return null;
+	}
+
+}

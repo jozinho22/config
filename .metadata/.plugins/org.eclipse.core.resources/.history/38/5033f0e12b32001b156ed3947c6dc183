@@ -1,0 +1,18 @@
+package com.douineau.testspringboot.security;
+
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
+public enum Role {
+
+	ADMIN(Sets.newHashSets()), USER
+	
+	private final Set<Permission> permissions;
+
+	private Role(Set<Permission> permissions) {
+		this.permissions = permissions;
+	}
+	
+	
+}

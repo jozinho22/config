@@ -1,0 +1,13 @@
+package com.douineau.testspringboot.dao.test;
+
+import java.util.Optional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.data.repository.CrudRepository;
+
+@NoRepositoryBean
+public interface GenericApiDao<T> extends CrudRepository<T, Integer> {
+
+}

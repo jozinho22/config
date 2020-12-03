@@ -1,0 +1,13 @@
+package com.douineau.testspringboot.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@Service
+public interface IGenericApiService<T> extends IGenericService<T> {
+	
+	public String addObjects(@RequestBody List<T> objects);
+
+}

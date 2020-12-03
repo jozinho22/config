@@ -1,0 +1,30 @@
+package com.douineau.testspringboot.controller;
+
+public class GenericController {
+
+	@RestController
+	@RequestMapping("/persons")
+	public class PersonController<T> {
+		
+//		@Autowired
+//		private PersonService service;
+		
+		@Autowired
+		private GenericService<T> service;
+		
+		@GetMapping
+		public List<T> getPersons() {			
+//			return service.getPersons();
+			return service.getAllObjects();
+		}
+		
+		@PostMapping
+		public String addPersons(@RequestBody List<T> objects) {
+			service.addObjects(objects);
+			return "Objects de type " + objects.getClass().getName() + " insérées";		
+		}
+
+	}
+
+
+}

@@ -1,0 +1,19 @@
+package com.douineau.testspringboot.security.jwt;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "application.jwt")
+public class JwtConfig {
+	
+	private String secretKey;
+	private String headerAuthorization;
+	private String tokenPrefix;
+	private String tokenExpirationAfterDays;
+	
+	public JwtConfig() {
+		super();
+	}
+	
+	
+	
+}

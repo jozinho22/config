@@ -1,0 +1,38 @@
+package com.douineau.testspringboot.model.api;
+
+import javax.persistence.Entity;
+
+import com.douineau.testspringboot.model.AbstractEntity;
+
+@Entity
+public class Writer<T> {
+
+	private String name;
+	private Class<T> typeParameterClass;
+	
+	public Writer(Class<T> typeParameterClass, String name) {
+		this.typeParameterClass = typeParameterClass;
+		this.name = name;
+	}
+	
+	public Writer() {
+		super();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Class<T> getTypeParameterClass() {
+		return typeParameterClass;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+}

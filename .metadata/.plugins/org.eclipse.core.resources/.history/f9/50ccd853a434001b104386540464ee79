@@ -1,0 +1,70 @@
+package com.douineau.testspringboot.dao.security;
+
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.douineau.testspringboot.model.security.Permission;
+import com.douineau.testspringboot.model.security.Role;
+import com.douineau.testspringboot.model.security.User;
+import com.douineau.testspringboot.security.enums.ApplicationPermission;
+import com.douineau.testspringboot.security.enums.ApplicationRole;
+import com.google.common.collect.Sets;
+
+@Configuration
+public class AuthoritiesConfig {
+	
+	@Autowired
+	private IUserDao userRepo;
+	@Autowired
+	private IPermissionDao permRepo;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@EventListener(ApplicationReadyEvent.class)
+	public void config() {
+	    	
+			Permission permToWrite = new Permission(ApplicationPermission.WRITE.name());
+			Permission permToRead = new Permission(ApplicationPermission.READ.name());
+			permRepo.save(Sets.newHashSet(permToWrite, permToRead));
+			
+			
+	    	User admin = new User(
+	    		    "admin",
+	    			passwordEncoder.encode("admin"),
+	    			true,
+	    			true,
+	    			true,
+	    			true,
+	    			Sets.newHashSet(new Role(ApplicationRole.ADMIN.name())),
+	    			Sets.newHashSet(ApplicationRole.ADMIN.getPermissions()
+							 .stream()
+							 	.map(p -> new Permission(p.name()))
+							 	.collect(Collectors.toSet()))	
+	    			);
+	    	
+	    	Set<Permission> permissions = (Set<Permission>) permRepo.findAll();
+	    	
+	    	User user = new User(
+	    		    "user",
+	    			passwordEncoder.encode("user"),
+	    			true,
+	    			true,
+	    			true,
+	    			true,
+	    			Sets.newHashSet(new Role(ApplicationRole.USER.name())),
+	    			Sets.newHashSet(permissions
+							 .stream()
+							 	.map(p -> new Permission(p.name()))
+							 	.collect(Collectors.toSet()))	
+	    			);
+	    	
+	    	userRepo.saveAll(Sets.newHashSet(admin, user));       
+	}
+
+}

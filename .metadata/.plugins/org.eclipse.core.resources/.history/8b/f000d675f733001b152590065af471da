@@ -1,0 +1,10 @@
+package com.douineau.testspringboot.dao.api;
+
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.dao.IGenericApiDao;
+
+@Repository
+public interface IWriterDao extends IGenericApiDao<Writer> {
+
+}

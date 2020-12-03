@@ -1,0 +1,16 @@
+package com.douineau.testspringboot.dao.security;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.security.ApplicationUserDetails;
+
+@Repository
+public interface IApplicationUserDetailsDao extends Serializable, List{
+
+	Optional<ApplicationUserDetails> findUserDetailsByUsername(String username);
+
+}

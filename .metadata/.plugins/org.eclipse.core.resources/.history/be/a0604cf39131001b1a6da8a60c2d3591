@@ -1,0 +1,37 @@
+package com.douineau.testspringboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.douineau.testspringboot.model.Person;
+import com.douineau.testspringboot.service.GenericService;
+
+@RestController
+@RequestMapping("/persons")
+public class PersonController<T> {
+	
+//	@Autowired
+//	private PersonService service;
+	
+	@Autowired
+	private GenericService<T> service;
+	
+	@GetMapping
+	public List<T> getPersons() {			
+//		return service.getPersons();
+				return service.getAllObjects();
+	}
+	
+	@PostMapping
+	public String addPersons(@RequestBody List<T> objects) {
+		service.addObjects(objects);
+		return "Objects " + T + " insérées";		
+	}
+
+}

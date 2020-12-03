@@ -1,0 +1,5 @@
+package com.douineau.testspringboot.model.api;
+
+public class Writer {
+
+}

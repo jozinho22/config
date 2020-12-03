@@ -1,0 +1,34 @@
+package com.douineau.testspringboot.service.api;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.api.IWriterDao;
+import com.douineau.testspringboot.model.api.Writer;
+import com.douineau.testspringboot.service.IGenericApiService;
+
+@Service
+public class WriterService extends GenericApiService<Writer> implements IGenericApiService<Writer> {
+	
+	@Autowired
+	private IWriterDao repo;
+
+	@Override
+	public Writer getObject(Integer id) {
+		return super.getObject(id, repo);
+	}
+	
+	@Override
+	public List<Writer> getAllObjects() {
+		return super.getAllObjects(repo);
+	}
+
+	@Override
+	public String addObjects(List<Writer> objects) {
+		return super.addObjects(objects, repo);
+	}
+
+}
+

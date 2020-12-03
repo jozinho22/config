@@ -1,0 +1,16 @@
+package com.douineau.testspringboot.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.douineau.testspringboot.dao.IGenericApiDao;
+
+public interface IGenericService<T> {
+		
+	public T getObject(Integer id, CrudRepository<T, Integer> repo);
+	
+	public List<T> getAllObjects();
+
+}

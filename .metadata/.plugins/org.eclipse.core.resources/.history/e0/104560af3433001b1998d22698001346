@@ -1,0 +1,21 @@
+package com.douineau.testspringboot.model.api;
+
+import javax.persistence.Entity;
+
+import com.douineau.testspringboot.model.AbstractEntity;
+
+@Entity
+public class Book extends AbstractEntity {
+	
+	public Book() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Book [getId()=" + getId() + ", getName()=" + getName() + ", hashCode()=" + hashCode() + ", getClass()="
+				+ getClass() + ", toString()=" + super.toString() + "]";
+	}
+
+
+}

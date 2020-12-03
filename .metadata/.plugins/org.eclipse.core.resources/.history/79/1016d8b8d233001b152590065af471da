@@ -1,0 +1,18 @@
+package com.douineau.testspringboot.controller.api;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.douineau.testspringboot.controller.IGenericApiController;
+import com.douineau.testspringboot.model.api.Book;
+import com.douineau.testspringboot.model.api.Reader;
+import com.douineau.testspringboot.service.api.BookService;
+
+@RestController
+@RequestMapping("/generic-api/books")
+public class BookController extends GenericApiController<Book> {
+
+}

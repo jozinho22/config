@@ -1,0 +1,5 @@
+package com.douineau.testspringboot.model;
+
+public class Laptop {
+
+}

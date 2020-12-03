@@ -1,0 +1,50 @@
+package com.douineau.testspringboot.service;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.AnnotatedType;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.IGenericDao;
+
+@Service("genericity")
+public class GenericService<T> implements IGenericService<T> {
+
+	@Autowired
+	private IGenericDao<T> repo;
+	
+	@Override
+	public T getObject(Integer id) {
+		Class<T> thisClass = (Class<T>) getClass();
+		System.out.println("thisClass : " + thisClass);
+		
+		ParameterizedType type = thisClass.getGenericSuperclass();
+		
+		Annotation[] annot  = thisClass.getAnnotations();
+		System.out.println("annot : " + annot);
+		
+		Annotation[] annot2  = thisClass.getDeclaredAnnotations();
+		System.out.println("annot2 : " + annot2);
+		
+		AnnotatedType superClass = thisClass.getAnnotatedSuperclass();
+		System.out.println("superClass : " + superClass);
+//		Class<T> clazz = (Class<T>) this.;
+//		return repo.getObject(clazz, id);
+		return null;
+	}
+
+	@Override
+	public List<T> getAllObjects() {
+		return null;
+	}
+
+	@Override
+	public String addObjects(Set<T> objects) {
+		return null;
+	}
+
+}

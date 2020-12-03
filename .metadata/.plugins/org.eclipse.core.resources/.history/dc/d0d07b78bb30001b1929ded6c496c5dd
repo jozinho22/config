@@ -1,0 +1,11 @@
+package com.douineau.testspringboot.model;
+
+import java.util.UUID;
+
+public class Person {
+	
+	private Integer id;
+	private UUID uuid;
+	private String name;
+
+}

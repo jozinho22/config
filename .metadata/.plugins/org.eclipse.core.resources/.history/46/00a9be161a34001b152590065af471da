@@ -1,0 +1,16 @@
+package com.douineau.testspringboot.dao;
+
+import java.util.List;
+import java.util.Set;
+
+import com.douineau.testspringboot.service.IGenericService;
+
+public interface IGenericApiDao<T> {
+	
+	T getObject(Integer id);
+	
+	List<T> getAllObjects();
+	
+	String addObjects(Set<T> objects);
+
+}

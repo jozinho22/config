@@ -1,0 +1,6 @@
+package com.douineau.testspringboot.security.jwt;
+
+@Congifuration
+public class JwtConfig {
+
+}

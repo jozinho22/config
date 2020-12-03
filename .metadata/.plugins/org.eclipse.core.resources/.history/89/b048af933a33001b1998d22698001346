@@ -1,0 +1,34 @@
+package com.douineau.testspringboot.dao.security;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.security.ApplicationUserDetails;
+import com.douineau.testspringboot.security.enums.ApplicationRole;
+import com.google.common.collect.Lists;
+
+@Repository("realDao")
+public class RealApplicationUserDetailsDaoImpl implements ApplicationUserDetailsDao {
+
+	private final PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	public RealApplicationUserDetailsDaoImpl(PasswordEncoder passwordEncoder) {
+		super();
+		this.passwordEncoder = passwordEncoder;
+	}
+
+	@Override
+	public Optional<ApplicationUserDetails> findUserDetailsByUsername(String username) {
+		return getApplicationUserDetails()
+				.stream()
+				.filter(applicationUser -> applicationUser.getUsername().equals(username))
+				.findFirst();
+	}
+
+	
+}

@@ -1,0 +1,28 @@
+package com.douineau.testspringboot.service.security;
+
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.service.IGenericAdminService;
+
+@Service
+public class GenericAdminService<T> implements IGenericAdminService<T> {
+
+	@Override
+	public T getObject(Integer id) {
+		return null;
+	}
+
+	@Override
+	public List<T> getAllObjects() {
+		return null;
+	}
+
+	@Override
+	public void addObjects(Set<T> objects) {
+	}
+
+
+}

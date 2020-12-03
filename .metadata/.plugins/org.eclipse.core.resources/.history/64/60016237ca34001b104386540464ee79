@@ -1,0 +1,46 @@
+package com.douineau.testspringboot.controller.api;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.douineau.testspringboot.model.api.Book;
+import com.douineau.testspringboot.service.api.IGenericApiService;
+
+public class GenericApiController<T> implements IGenericApiController<T> {
+
+	@Autowired
+	@Qualifier("api")
+	protected IGenericApiService<T> service;
+	
+	@Autowired
+	private Map<String, Class<?>> apiMapping;
+
+	@Override
+	public T getObject(Integer id, HttpServletRequest request) {
+		System.out.println(request.getRequestURI());
+		System.out.println(apiMapping);
+		return service.getObject(Book.class, id);
+	}
+
+	@Override
+	public List<T> getAllObjects() {
+		return service.getAllObjects();
+	}
+
+	@Override
+	public String addObjects(Set<T> objects) {
+		return service.addObjects(objects);		
+	}
+
+	@Override
+	public String addObject(T object) {
+		return service.addObject(object);
+	}
+	
+}

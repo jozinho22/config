@@ -1,0 +1,11 @@
+package com.douineau.testspringboot.controller;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ControllerMappingConfig {
+	
+	@Bean("")
+	private Map<String, Class<T>> 
+
+}

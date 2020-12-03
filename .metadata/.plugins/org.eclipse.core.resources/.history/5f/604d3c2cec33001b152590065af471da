@@ -1,0 +1,9 @@
+package com.douineau.testspringboot.dao.test;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.NoRepositoryBean;
+
+@NoRepositoryBean
+public interface GenericApiDao<T> extends CrudRepository<T, Integer> {
+
+}

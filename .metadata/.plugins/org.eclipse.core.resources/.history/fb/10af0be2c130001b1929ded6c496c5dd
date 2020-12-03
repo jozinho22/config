@@ -1,0 +1,17 @@
+package com.douineau.testspringboot.model;
+
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Laptop {
+	
+	@Id
+	private Integer id;
+	private UUID uuid;
+	private String brand;
+	private float price;
+
+}

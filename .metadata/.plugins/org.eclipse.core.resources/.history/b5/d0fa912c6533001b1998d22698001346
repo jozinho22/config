@@ -1,0 +1,20 @@
+package com.douineau.testspringboot.dao.api;
+
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.model.api.Writer;
+
+@Repository
+public interface WriterDao extends GenericApiDao<Writer, Integer> {
+
+	default Class<?> getClassType() {
+		 return Car.class;
+		}
+
+		//TODO @Query etc
+		@Override
+
+		Optional<Car> getObjectByPropertyA(String propertyA);
+
+		}
+}

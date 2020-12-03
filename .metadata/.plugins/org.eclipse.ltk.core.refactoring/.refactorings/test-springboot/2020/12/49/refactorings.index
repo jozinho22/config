@@ -1,0 +1,61 @@
+1606824487508	Copy compilation unit
+1606824496443	Rename compilation unit 'GenericApiController.java'
+1606824659955	Copy compilation unit
+1606824672113	Rename type 'GenericApiService'
+1606825064323	Delete element
+1606825419876	Delete element
+1606825918727	Delete element
+1606825955620	Delete element
+1606825958490	Delete element
+1606826071990	Copy compilation unit
+1606827231757	Delete element
+1606829509713	Rename type 'WriterDaoTestd'
+1606829517458	Rename compilation unit 'WriterDaoTest.java'
+1606829526744	Rename type 'IWriterDaoTestd'
+1606829587521	Delete element
+1606830300027	Move compilation units
+1606830319356	Move compilation unit
+1606836736364	Delete element
+1606837349899	Rename type 'BookDao'
+1606837354539	Rename type 'ReaderDao'
+1606837361861	Rename type 'WriterDao'
+1606837379618	Rename type 'PermissionDao'
+1606837387885	Rename type 'ApplicationUserDetailsDao'
+1606837395876	Rename type 'RoleDao'
+1606837403524	Rename type 'UserDao'
+1606837447921	Rename type 'FakeApplicationUserDetailsDaoImpl'
+1606837465243	Rename type 'FakeApplicationUserDetailsDaoFakeImpl'
+1606837475912	Rename type 'RealApplicationUserDetailsDaoImpl'
+1606837485025	Rename type 'ApplicationUserDetailsDaoFakeImpl'
+1606837490081	Rename type 'ApplicationUserDetailsDaoRealImpl'
+1606837501271	Rename type 'GenericApiDao'
+1606837507032	Rename type 'WriterDaoTest'
+1606838158295	Move compilation unit
+1606838226407	Delete element
+1606845045404	Delete element
+1606847923613	Delete element
+1606856380895	Delete elements
+1606856458049	Delete elements
+1606856686263	Delete element
+1606856694374	Move compilation unit
+1606856940226	Delete element
+1606857406208	Move compilation unit
+1606857412527	Rename compilation unit 'GenericApiService.java'
+1606859056273	Rename type 'IGenericApiDao'
+1606859062446	Rename type 'GenericApiDao'
+1606909893616	Delete element
+1606916242351	Rename field 'userDao'
+1606930338470	Rename type 'AuthoritiesConfig'
+1606931038870	Copy compilation unit
+1606931049971	Move compilation unit
+1606931578086	Copy compilation unit
+1606931585665	Move compilation unit
+1606931823925	Copy compilation unit
+1606931867153	Copy compilation unit
+1606931875532	Move compilation units
+1606933300968	Extract method 'getClassNameWithKey'
+1606936581695	Delete element
+1606947111054	Delete element
+1606948879809	Rename type 'JwtTokenVerifier'
+1606949272046	Rename type 'JwtUsernameAndPasswordAuthenticationFilter'
+1606952825102	Rename type 'UsernamePasswordAuthenticationRequest'

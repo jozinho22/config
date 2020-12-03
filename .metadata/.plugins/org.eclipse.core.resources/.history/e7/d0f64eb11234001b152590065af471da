@@ -1,0 +1,12 @@
+package com.douineau.testspringboot.dao;
+
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.NoRepositoryBean;
+
+@NoRepositoryBean
+public interface IGenericApiDao<T> extends CrudRepository<T, Integer> {
+
+	Optional<T> findById(Integer id, Class<?> entityType);
+}

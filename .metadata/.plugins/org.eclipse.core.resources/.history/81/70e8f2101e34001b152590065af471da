@@ -1,0 +1,11 @@
+package com.douineau.testspringboot.dao.api;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.dao.GenericApiDao;
+
+@Repository
+public class BookDao<Book> extends GenericApiDao<Book> {
+
+}

@@ -1,0 +1,39 @@
+package com.douineau.testspringboot.service.security;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.security.IRoleDao;
+import com.douineau.testspringboot.model.security.Role;
+import com.douineau.testspringboot.service.IGenericApiService;
+
+@Service
+public class RoleService implements IGenericApiService<Role> {
+	
+	@Autowired
+	private IRoleDao repo;
+
+	@Override
+	public Role getObject(Integer id) {
+		Optional<Role> mayBe = repo.findById(id);
+		if(mayBe.isPresent()) {
+			return mayBe.get();
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<Role> getAllObjects() {
+		return  (List<Role>) repo.findAll();
+	}
+
+	@Override
+	public String addObjects(List<Role> objects) {
+		repo.saveAll(objects);
+		return "Objets de type : " + objects.getClass().getTypeName() + " bien insérés";
+	}
+}

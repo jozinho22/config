@@ -1,0 +1,37 @@
+package com.douineau.testspringboot.security.jwt;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+public class UsernamePasswordAuthenticationRequest extends UsernamePasswordAuthenticationFilter {
+	
+	private String username;
+	private String password;
+	
+	
+	public JwtNameAndPasswordAuthenticationRequest(AuthenticationManager authenticationManager) {
+		super(authenticationManager);
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.douineau.testspringboot.model.security;
+
+public class Right {
+
+}

@@ -1,0 +1,17 @@
+package com.douineau.testspringboot.util;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class ApiUtil {
+	
+	public static <?> Class<T> getType(HttpServletRequest request, Map<String, Class<?>> apiMapping) {
+		int thirdSlashPlace = request.getRequestURI().lastIndexOf("/");
+		String key = request.getRequestURI().substring(0, thirdSlashPlace);
+		Class<?> clazz = apiMapping.get(key);
+		System.out.println(request.getRequestURI());
+		return clazz;
+	}
+
+}

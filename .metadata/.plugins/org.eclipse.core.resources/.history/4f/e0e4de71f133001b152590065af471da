@@ -1,0 +1,14 @@
+package com.douineau.testspringboot.service;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+@
+public interface IGenericService<T> {
+	
+	public T getObject(@PathVariable("id") Integer id);
+	
+	public List<T> getAllObjects();
+
+}

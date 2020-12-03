@@ -1,0 +1,13 @@
+package com.douineau.testspringboot.service;
+
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.controller.IGenericApiController;
+
+@Service
+public interface IGenericApiService<T> extends IGenericApiController<T> {
+
+}

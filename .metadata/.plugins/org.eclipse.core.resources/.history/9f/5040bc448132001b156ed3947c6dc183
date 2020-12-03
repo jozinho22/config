@@ -1,0 +1,55 @@
+package com.douineau.testspringboot.dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.dao.security.ApplicationUserDetailsDao;
+import com.douineau.testspringboot.security.ApplicationUserDetails;
+
+@Repository("fakeDao")
+public class FakeApplicationUserDaoImpl implements ApplicationUserDetailsDao {
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Override
+	public Optional<ApplicationUserDetails> findUserDetailsByUsername(String username) {
+		return getApplicationUserDetails()
+				.stream()
+				.filter(applicationUser -> applicationUser.getUsername().equals(username))
+				.findFirst();
+	}
+
+	private List<ApplicationUserDetails> getApplicationUserDetails() {
+		 
+		User user = new User(
+				"Joss",
+				passwordEncoder.encode("joss"),
+				true,
+				true,
+				true,
+				true,
+				
+				);
+		user.User
+		user.setPassword(passwordEncoder.encode("joss"));
+		user.setAccountNonExpired(true);
+		user.setAccountNonLocked(true);
+		user.setCredentialsNonExpired(true);
+		user.setEnabled(true);
+		Role role = new Role();
+		role.setName("ROLES_" + ApplicationRole.ADMIN.name());
+		user.setRoles(Lists.newArrayList(role));
+		
+		List<ApplicationUserDetails> userDetails = Lists.newArrayList(
+				new ApplicationUserDetails(user)
+				);
+		
+		return userDetails;
+	}
+}

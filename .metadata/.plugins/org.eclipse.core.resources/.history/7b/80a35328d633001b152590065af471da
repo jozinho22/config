@@ -1,0 +1,16 @@
+package com.douineau.testspringboot.service;
+
+@Service
+public class RepositoryProvider {
+
+  private List<GenericApiDao<?>> repositories;
+
+  @Autowired
+  public RepositoryProvider(List<GenericApiDao<?>> repositories) {
+    this.repositories = repositories;
+  }
+
+  Optional<GenericApiDao<?>> getRepositoryForType(Class<?> clazz) {
+    return repositories.stream.filter(r ->r.getClassType().equals(clazz)).findFirst();
+  }
+}

@@ -1,0 +1,24 @@
+package com.douineau.testspringboot.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.GenericApiDao;
+
+@Service
+public class RepositoryProvider {
+
+  private List<GenericApiDao<?>> repositories;
+
+  @Autowired
+  public RepositoryProvider(List<GenericApiDao<?>> repositories) {
+    this.repositories = repositories;
+  }
+
+  Optional<GenericApiDao<?>> getRepositoryForType(Class<?> clazz) {
+    return repositories.stream.filter(r ->r.getClassType().equals(clazz)).findFirst();
+  }
+}

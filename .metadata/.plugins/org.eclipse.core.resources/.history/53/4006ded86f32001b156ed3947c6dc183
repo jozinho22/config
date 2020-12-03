@@ -1,0 +1,20 @@
+package com.douineau.testspringboot.security.jwt;
+
+public enum Header {
+	
+	AUTHORIZATION("Authorization");
+	
+	private String name;
+
+	private Header(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	
+	
+
+}

@@ -1,0 +1,41 @@
+package com.douineau.testspringboot.controller.security;
+//package com.douineau.testspringboot.controller.api;
+//
+//import java.util.List;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.GetMapping;
+//
+//import com.douineau.testspringboot.controller.IGenericApiController;
+//import com.douineau.testspringboot.service.api.GenericApiService;
+//
+//public class GenericApiController<T> implements IGenericApiController<T> {
+//
+//	@Autowired
+//	private GenericApiService<T> service;
+//
+//	@Override
+//	public T getObject(Integer id) {
+//		return service.getObject(id);
+//	}
+//
+//	@Override
+//	public List<T> getAllObjects() {
+//		return service.getAllObjects();
+//	}
+//	
+//	//methode à rajouter dans l'interface plus tard...
+//	@GetMapping
+//	public List<T> getAllObjects(T entity) {
+//		return service.getAllObjects(entity);
+//	}
+//
+//	@Override
+//	public String addObjects(List<T> objects) {
+//		 service.addObjects(objects);
+//		 return "Objets de type : " + objects.getClass().getName() + " bien insérés";
+//		
+//	}
+//	
+//	
+//}

@@ -1,0 +1,15 @@
+package com.douineau.testspringboot.dao.api;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.dao.IGenericApiDao;
+import com.douineau.testspringboot.model.api.Book;
+import com.douineau.testspringboot.model.api.Reader;
+
+@Repository
+@Qualifier("bookDao")
+public interface IBookDao extends CrudRepository<Book, Integer> {
+
+}

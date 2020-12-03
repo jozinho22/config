@@ -1,0 +1,5 @@
+package com.douineau.testspringboot.controller.api;
+
+public class WriterController extends GenericApiController<T> {
+
+}

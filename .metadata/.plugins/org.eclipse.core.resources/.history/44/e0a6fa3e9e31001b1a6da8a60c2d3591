@@ -1,0 +1,25 @@
+package com.douineau.testspringboot.model.security;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import com.douineau.testspringboot.model.AbstractEntity;
+
+@Entity
+public class Authority extends AbstractEntity {
+
+	private String role;
+	
+	@ManyToMany
+	@JoinTable(
+			joinColumns = @JoinColumn(name = "authority_id"), 
+			inverseJoinColumns = @JoinColumn(name = "user_id")
+			)
+	private List<Authority> authorities; 
+	
+	
+}

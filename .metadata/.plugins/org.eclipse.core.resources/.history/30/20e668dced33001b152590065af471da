@@ -1,0 +1,11 @@
+package com.douineau.testspringboot.dao.test;
+
+import org.springframework.stereotype.Repository;
+
+import com.douineau.testspringboot.dao.IGenericApiDao;
+import com.douineau.testspringboot.model.api.Writer;
+
+@Repository
+public interface IWriterDaoTest extends IGenericApiDao<Writer> {
+
+}

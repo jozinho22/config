@@ -1,0 +1,52 @@
+package com.douineau.testspringboot.service.security;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.model.api.Writer;
+import com.douineau.testspringboot.service.IGenericApiService;
+import com.douineau.testspringboot.util.PersistenceUtil;
+
+@Service
+public class GenericAdminService<T> implements IGenericApiService<T> {
+
+//	@Autowired
+//	private GenericApiDao<T> repo;
+
+	@Bean
+	public CrudRepository<T, Integer> getRepository(T entity) {
+	
+		EntityManager em = PersistenceUtil.getEntityManager();
+		SimpleJpaRepository<T, Integer> repo = 
+				 new SimpleJpaRepository<GenericAdminService.T, Integer>(domainClass, em);
+		return repo;
+
+	}
+
+	public T getObject(Integer id) {
+		Writer w = new Writer();
+		w.setName("Joss" + id);
+		return (T) w;
+	}
+
+	@Override
+	public List<T> getAllObjects() {
+		return null;
+	}
+
+	//methode à rajouter dans l'interface plus tard...
+	public List<T> getAllObjects(T entity) {
+		return (List<T>) getRepository(entity).findAll();
+	}
+
+	@Override
+	public void addObjects(List<T> objects) {
+	}
+
+}

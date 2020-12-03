@@ -1,0 +1,5 @@
+package com.douineau.testspringboot.dao;
+
+public interface IGenericApiDao<T> {
+
+}

@@ -1,0 +1,7 @@
+package com.douineau.testspringboot.service.api;
+
+import com.douineau.testspringboot.model.api.Writer;
+
+public class WriterService extends GenericApiService<Writer> {
+
+}

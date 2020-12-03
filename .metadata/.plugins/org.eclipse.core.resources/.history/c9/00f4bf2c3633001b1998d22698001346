@@ -1,0 +1,37 @@
+package com.douineau.testspringboot.controller.api;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.douineau.testspringboot.controller.GenericController;
+import com.douineau.testspringboot.model.api.Book;
+import com.douineau.testspringboot.service.api.TechniqueService;
+
+@RestController
+@RequestMapping("api/books")
+public class BookController implements GenericController<Book>  {
+	
+	@Autowired
+	private BookService service;
+
+	@Override
+	public Book getObject(Integer id) {
+		return service.getObject(id);
+	}
+	
+	@Override
+	public List<Book> getAllObjects() {
+		return service.getAllObjects();
+	}
+
+	@Override
+	public String addObjects(List<Book> disciples) {
+		service.addObjects(disciples);
+		return "Techiques insérées";
+	}
+	
+	
+}

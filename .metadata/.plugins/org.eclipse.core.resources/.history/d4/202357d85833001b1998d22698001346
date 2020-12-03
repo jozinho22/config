@@ -1,0 +1,62 @@
+package com.douineau.testspringboot.dao.api;
+
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class GenericApiDao<T> implements CrudRepository<T, Integer> {
+
+	@Override
+	public <S extends T> S save(S entity) {
+		return null;
+	}
+
+	@Override
+	public <S extends T> Iterable<S> saveAll(Iterable<S> entities) {
+		return null;
+	}
+
+	@Override
+	public Optional<T> findById(Integer id) {
+		return null;
+	}
+
+	@Override
+	public boolean existsById(Integer id) {
+		return false;
+	}
+
+	@Override
+	public Iterable<T> findAll() {
+		return null;
+	}
+
+	@Override
+	public Iterable<T> findAllById(Iterable<Integer> ids) {
+		return null;
+	}
+
+	@Override
+	public long count() {
+		return 0;
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+	}
+
+	@Override
+	public void delete(T entity) {
+	}
+
+	@Override
+	public void deleteAll(Iterable<? extends T> entities) {
+	}
+
+	@Override
+	public void deleteAll() {
+	}
+	
+}

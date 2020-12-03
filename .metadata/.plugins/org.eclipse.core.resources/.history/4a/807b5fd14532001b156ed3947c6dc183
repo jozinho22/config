@@ -1,0 +1,29 @@
+package com.douineau.testspringboot.service.security;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.dao.security.UserDao;
+import com.douineau.testspringboot.security.ApplicationUserDetails;
+import com.douineau.testspringboot.service.GenericService;
+
+@Service
+public class ApplicationUserDetailsService implements GenericService<ApplicationUserDetails> {
+	
+	@Autowired
+	private UserDao repo;
+
+	@Override
+	public List<ApplicationUserDetails> getAllObjects() {
+		return (List<ApplicationUserDetails>) repo.findAll();
+	}
+
+	@Override
+	public void addObjects(List<ApplicationUserDetails> objects) {
+		repo.saveAll(objects);
+	}
+
+
+}

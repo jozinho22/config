@@ -1,0 +1,9 @@
+package com.douineau.testspringboot.service.api;
+
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.model.api.Book;
+
+public class BookService extends GenericApiService<Book> {
+
+}

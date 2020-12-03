@@ -1,0 +1,7 @@
+package com.douineau.testspringboot.dao.api;
+
+import com.douineau.testspringboot.dao.GenericApiDao;
+
+public class BookDao<Book> extends GenericApiDao<Book> {
+
+}

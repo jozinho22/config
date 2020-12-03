@@ -1,0 +1,26 @@
+package com.douineau.testspringboot.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Technique extends AbstractEntity {
+	
+	private String brand;
+	
+	public Technique() {
+		super();
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	@Override
+	public String toString() {
+		return "Laptop [id=" + super.getId() + ",brand=" + brand + "]";
+	}
+
+}

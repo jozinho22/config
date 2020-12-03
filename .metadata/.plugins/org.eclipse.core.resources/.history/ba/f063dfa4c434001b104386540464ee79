@@ -1,0 +1,11 @@
+package com.douineau.testspringboot.controller;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class GenericControllerMappingConfig {
+	
+	@Bean("apiConfig")
+	private Map<String, Class<T>> 
+
+}

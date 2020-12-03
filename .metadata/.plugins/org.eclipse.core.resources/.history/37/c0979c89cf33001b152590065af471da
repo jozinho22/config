@@ -1,0 +1,35 @@
+package com.douineau.testspringboot.service.security;
+
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
+
+import com.douineau.testspringboot.model.api.Writer;
+import com.douineau.testspringboot.service.IGenericAdminService;
+import com.douineau.testspringboot.util.PersistenceUtil;
+
+@Service
+public class GenericAdminService<T> implements IGenericAdminService<T> {
+
+	@Override
+	public T getObject(Integer id) {
+		return null;
+	}
+
+	@Override
+	public List<T> getAllObjects() {
+		return null;
+	}
+
+	@Override
+	public void addObjects(Set<T> objects) {
+	}
+
+
+}

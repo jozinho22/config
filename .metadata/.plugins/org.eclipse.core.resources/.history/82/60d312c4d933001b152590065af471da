@@ -1,0 +1,21 @@
+package com.douineau.testspringboot.dao;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
+@Repository
+@Qualifier("writerRepository")
+public interface IWriterDaoTest extends GenericApiDao<IWriterDaoTest> {
+
+	default Class<?> getClassType() {
+		return IWriterDaoTest.class;
+	}
+
+	//TODO @Query etc
+	
+	@Override
+	Optional<IWriterDaoTest> getObjectByProperty(String property);
+
+}

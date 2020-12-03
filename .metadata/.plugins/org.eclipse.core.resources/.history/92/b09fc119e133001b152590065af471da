@@ -1,0 +1,29 @@
+package com.douineau.testspringboot.model.api;
+
+import javax.persistence.Entity;
+
+import com.douineau.testspringboot.model.AbstractEntity;
+
+@Entity
+public class Writer<T> extends AbstractEntity {
+
+	private String name;
+	private final Class<T> typeParameterClass;
+	
+	public Writer(Class<T> typeParameterClass) {
+		this.typeParameterClass = null;
+		super();
+		this.name = name;
+		this.typeParameterClass = typeParameterClass;
+	}
+
+	public Writer() {
+		this.typeParameterClass = null;
+		super();
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+}

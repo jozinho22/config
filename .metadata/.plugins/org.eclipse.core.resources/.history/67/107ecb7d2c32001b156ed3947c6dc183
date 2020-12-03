@@ -1,0 +1,30 @@
+package com.douineau.testspringboot.security;
+
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
+public enum ApplicationRole {
+
+	ADMIN(Sets.newHashSet(ApplicationPermission.READ)), 
+	USER(Sets.newHashSet(ApplicationPermission.READ, ApplicationPermission.WRITE));
+	
+	private final String name;
+	private final Set<ApplicationPermission> permissions;
+
+	
+	public String getName() {
+		return name;
+	}
+
+	public Set<ApplicationPermission> getPermissions() {
+		return permissions;
+	}
+	
+	private ApplicationRole(Set<ApplicationPermission> permissions, String name) {
+		this.permissions = permissions;
+		this.name = name:
+	}
+	
+
+}

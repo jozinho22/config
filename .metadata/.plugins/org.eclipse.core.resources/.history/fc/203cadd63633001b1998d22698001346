@@ -1,0 +1,10 @@
+package com.douineau.testspringboot.model.security;
+
+import javax.persistence.Entity;
+
+import com.douineau.testspringboot.model.AbstractEntity;
+
+@Entity
+public class Right extends AbstractEntity {
+
+}
