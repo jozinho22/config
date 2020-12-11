@@ -1,0 +1,4 @@
+cd C:\Windows\System32
+netstat -ano | findstr :8080
+netstat -ano | findstr :3000
+taskkill /PID 2948 /F
